@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('portofolio');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/crud', function () {
+    return view('CRUD');
 });

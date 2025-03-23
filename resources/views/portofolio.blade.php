@@ -20,9 +20,8 @@
         }
 
         nav {
-            background: #1e3a8a;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
             top: 0;
             z-index: 1000;
         }
@@ -119,7 +118,7 @@
         }
 
         .project-card {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -216,9 +215,8 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Leonel Marcelino</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -407,22 +405,21 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card bg-light rounded p-4">
-                        <h5 class="mb-2">E-Commerce Website</h5>
+                        <h5 class="mb-2 text-center">E-Commerce Website</h5>
                         <p class="mb-4">A responsive and user-friendly e-commerce website with Cart</p>
                         <div class="mt-auto d-flex justify-content-between align-items-end">
                             <div>
                                 <span class="badge bg-primary me-1">HTML/CSS</span>
-                                <span class="badge bg-primary me-1">JavaScript</span>
+                                <span class="badge bg-primary me-1">JS</span>
                                 <span class="badge bg-secondary me-1">PHP</span>
                                 <span class="badge bg-success">MySQL</span>
                             </div>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card bg-light rounded p-4">
-                        <h5 class="mb-2">Task Management App</h5>
+                        <h5 class="mb-2 text-center">Task Management App</h5>
                         <p class="mb-4">A collaborative task manager with real-time updates</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -430,20 +427,18 @@
                                 <span class="badge bg-secondary me-1">Express</span>
                                 <span class="badge bg-success">Socket.io</span>
                             </div>
-                            <a href="#" class="btn btn-outline-primary">View Project</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card bg-light rounded p-4">
-                        <h5 class="mb-2">Library Management System</h5>
+                        <h5 class="mb-2 text-center">Library Management System</h5>
                         <p class="mb-4">A library management system with user authentication, borrow and return features</p>
                         <div class="mt-auto d-flex justify-content-between align-items-end">
                             <div>
                                 <span class="badge bg-primary me-1">Java</span>
                                 <span class="badge bg-success">MySQL</span>
                             </div>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
                         </div>
                     </div>
                 </div>

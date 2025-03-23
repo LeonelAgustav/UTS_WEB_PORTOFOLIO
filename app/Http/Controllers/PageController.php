@@ -10,7 +10,7 @@ class PageController extends Controller
         return view('portofolio');
     }
 
-    public function profile(){
-        return view('profile');
+    public function CRUD(){
+        return view('crud');
     }
 }
