@@ -120,7 +120,7 @@
                 <li>
                     <a href="{{ url('certificate/show') }}" class="text-white hover:bg-purple-600 px-4 py-2 rounded-lg flex align-items-center transition duration-300">
                         <i class="bi bi-award-fill h-5 w-5 mr-3 sidebar-icon"></i>
-                        <span class="sidebar-item-text">project</span>
+                        <span class="sidebar-item-text">Cetificate</span>
                     </a>
                 </li>
                 <li>
@@ -159,7 +159,7 @@
 
                     <!-- Tombol CRUD di pojok kanan bawah -->
                     <div id="CRUD">
-                        <button onclick="openEditModal({{ json_encode($projects) }})" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg transition duration-300">
+                        <button onclick="openEditModal({{ json_encode($projects) }})" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">
                             <i class="bi bi-pencil-fill"></i>
                         </button>
                         <form action="{{ url('project/delete/'.$projects->project_id) }}" method="POST" onsubmit="return confirmDelete(event)" class="inline">

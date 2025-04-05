@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -38,6 +40,16 @@
 
         section {
             padding: 80px 0;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .hero {
@@ -141,6 +153,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
             transition: transform 0.3s ease;
+            height: auto;
         }
 
         .certificate-card:hover {
@@ -149,20 +162,12 @@
 
         .certificate-card img {
             width: 100%;
-            /* Pastikan gambar mengisi lebar kartu */
             height: auto;
-            /* Biarkan tinggi mengikuti proporsi */
             object-fit: cover;
-            /* Menjaga tampilan proporsional */
             border-radius: 8px;
-            /* Opsional, untuk mempercantik tampilan */
         }
 
         .certificate-card .card-body {
-            padding: 20px;
-        }
-
-        .card-body {
             padding: 20px;
         }
 
@@ -196,11 +201,6 @@
             margin-top: auto;
         }
 
-        .progress {
-            height: 10px;
-            margin-bottom: 10px;
-        }
-
         .btn-primary {
             background-color: #3b82f6;
             border-color: #3b82f6;
@@ -222,6 +222,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
@@ -232,13 +233,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container text-center">
             <h1>Leonel Marcelino Agustav</h1>
             <p class="lead">Full Stack Developer & Computer Science Student</p>
             <div class="mt-4">
-                <a href="#certificates" class="btn btn-light btn-lg me-2">View My Certificates</a>
-                <a href="#portfolio" class="btn btn-outline-light btn-lg">View My Work</a>
+                <a href="#portfolio" class="btn btn-light btn-lg me-2">View My Project</a>
+                <a href="#certificates" class="btn btn-outline-light btn-lg">View My Certificates</a>
             </div>
         </div>
     </section>
@@ -301,61 +302,53 @@
                 <h2>Skills</h2>
                 <p>My Technical Expertise</p>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>Frontend Development</h4>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>HTML/CSS</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>JavaScript</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h4>Backend Development</h4>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>PHP</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>Golang</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <span>MySQL</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row gx-5">
+    <!-- Frontend Section -->
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Frontend Development</h4>
             </div>
+            <div class="card-body">
+                @foreach($front as $skill)
+                <div class="skill-item d-flex align-items-center mb-3">
+                    <i class="fas fa-code fa-fw me-3 text-primary"></i>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="skill-name">{{ $skill->skill_name }}</span>
+                            <span class="skill-level">{{ $skill->level }}</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!-- Backend Section -->
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">Backend Development</h4>
+            </div>
+            <div class="card-body">
+                @foreach($back as $skill)
+                <div class="skill-item d-flex align-items-center mb-3">
+                    <i class="fas fa-server fa-fw me-3 text-success"></i>
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="skill-name">{{ $skill->skill_name }}</span>
+                            <span class="skill-level">{{ $skill->level }}</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
             <div class="row mt-5">
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <div class="skill-item text-center">
                         <div class="skill-icon">
                             <i class="fas fa-laptop-code"></i>
@@ -364,7 +357,7 @@
                         <p>Creating responsive and user-friendly web applications</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <div class="skill-item text-center">
                         <div class="skill-icon">
                             <i class="bi bi-window"></i>
@@ -373,7 +366,7 @@
                         <p>Creating mobile and desktop applications</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <div class="skill-item text-center">
                         <div class="skill-icon">
                             <i class="fas fa-database"></i>
@@ -382,7 +375,7 @@
                         <p>Creating efficient database structures and queries</p>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up">
                     <div class="skill-item text-center">
                         <div class="skill-icon">
                             <i class="fas fa-network-wired"></i>
@@ -396,124 +389,57 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Portfolio</h2>
-                <p>My Recent Projects</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card bg-light rounded p-4">
-                        <h5 class="mb-2 text-center">E-Commerce Website</h5>
-                        <p class="mb-4">A responsive and user-friendly e-commerce website with Cart</p>
-                        <div class="mt-auto d-flex justify-content-between align-items-end">
-                            <div>
-                                <span class="badge bg-primary me-1">HTML/CSS</span>
-                                <span class="badge bg-primary me-1">JS</span>
-                                <span class="badge bg-secondary me-1">PHP</span>
-                                <span class="badge bg-success">MySQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card bg-light rounded p-4">
-                        <h5 class="mb-2 text-center">Task Management App</h5>
-                        <p class="mb-4">A collaborative task manager with real-time updates</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span class="badge bg-primary me-1">Vue.js</span>
-                                <span class="badge bg-secondary me-1">Express</span>
-                                <span class="badge bg-success">Socket.io</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card bg-light rounded p-4">
-                        <h5 class="mb-2 text-center">Library Management System</h5>
-                        <p class="mb-4">A library management system with user authentication, borrow and return features</p>
-                        <div class="mt-auto d-flex justify-content-between align-items-end">
-                            <div>
-                                <span class="badge bg-primary me-1">Java</span>
-                                <span class="badge bg-success">MySQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="portfolio" class="portfolio py-5 bg-light">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h2 class="fw-bold position-relative d-inline-block pb-2">Portfolio</h2>
+            <p class="text-muted fs-5 mt-2">My Recent Projects</p>
         </div>
-    </section>
+        
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
+            @foreach($projects as $project)
+            <div class="col" data-aos="fade-up">
+                <a href="{{ $project->url }}" class="card h-100 shadow-sm text-decoration-none text-dark overflow-hidden transition-all hover-scale">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 text-center fw-bold">{{ $project->project_name }}</h5>
+                        <p class="card-text text-muted">{{ $project->deskripsi }}</p>
+                    </div>
+                    
+                    <div class="card-footer bg-white border-top p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary rounded-pill">{{ $project->bahasa }}</span>
+                            <i class="bi bi-arrow-right-circle"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
     <!-- Certificates Section -->
     <section id="certificates" class="certificates bg-white">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title text-center mb-4">
                 <h2>Certificates</h2>
                 <p>My Achievements and Qualifications</p>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <img src="{{asset('img/CCNA-_Introduction_to_Networks.jpg')}}" alt="Certificate 1">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($certificates as $index => $certificate)
+                <div class="col" data-aos="fade-up">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ asset('/storage/'.$certificate->image) }}" class="card-img-top" alt="Certificate" style="height: auto; object-fit: cover; border: 1px solid rgba(0,0,0,0.2); border-radius: 4px;">
                         <div class="card-body">
-                            <div style="height: 5rem;">
-                                <h5>CCNA: Introduction to Networks</h5>
-                            </div>
-                            <p><i class="fas fa-award text-warning me-2"></i>Cisco</p>
-                            <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>February 2023</p>
+                            <h5 class="card-title">{{ $certificate->certi_name }}</h5>
+                        </div>
+                        <div class="flex justify-start space-x-1 p-4 border-t border-gray-200">
+                            <p class="text-muted mb-2"><i class="fas fa-award text-warning me-2"></i>{{ $certificate->publisher }}</p>
+                            <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>{{ $certificate->month }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <img src="{{asset('img/CCNA-_Switching-_Routing-_and_Wireless_Essentials.jpg')}}" alt="Certificate 2">
-                        <div class="card-body">
-                            <div style="height: 5rem;">
-                                <h5>CCNA: Switching, Routing, and Wireless Essentials</h5>
-                            </div>
-                            <p><i class="fas fa-award text-warning me-2"></i>Cisco</p>
-                            <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>February 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <img src="{{asset('img/CCNA-_Enterprise_Networking-_Security-_and_Automation.jpg')}}" alt="Certificate 3">
-                        <div class="card-body">
-                            <div style="height: 5rem;">
-                                <h5>CCNA: Enterprise Networking, Security, and Automation</h5>
-                            </div>
-                            <p><i class="fas fa-award text-warning me-2"></i>Cisco</p>
-                            <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>February 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <img src="{{asset('img/CyberOps_Associate.jpg')}}" alt="Certificate 4">
-                        <div class="card-body">
-                            <div style="height: 5rem;">
-                                <h5>CyberOps Associate</h5>
-                            </div>
-                            <p><i class="fas fa-award text-warning me-2"></i>Cisco</p>
-                            <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>February 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <img src="{{asset('img/FEBIC.jpg')}}" alt="Certificate 4">
-                        <div class="card-body">
-                            <div style="height: 4rem;">
-                                <h5>Suppoting Committee in FEB-UB International Conference</h5>
-                            </div>
-                            <p><i class="fas fa-award text-warning me-2"></i>AIBPM</p>
-                            <p class="text-muted"><i class="far fa-calendar-alt me-2"></i>October 2022</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -544,6 +470,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
+        AOS.init();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a, .hero a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
